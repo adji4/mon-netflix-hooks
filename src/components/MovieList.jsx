@@ -1,13 +1,13 @@
-// On importe le movie card pour faire la liste des movies//
-
 import MovieCard from './MovieCard';
 
-export default function MovieList({ movies }) {
+function MovieList({ movies }) {
   return (
     <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      {movies.map((movie, index) => (
-        <MovieCard key={index} movie={movie} />
+      {movies.map((movie) => (
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>
   );
 }
+
+export default MovieList;

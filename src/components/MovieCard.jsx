@@ -1,11 +1,16 @@
-// Alors ici on exporte les card pour pouvoir lister les movies//
-export default function MovieCard({ movie }) {
+import { Link } from 'react-router-dom';
+
+function MovieCard({ movie }) {
   return (
-    <div style={{ border: '1px solid #ccc', margin: 10, padding: 10 }}>
+    <div style={{ border: '1px solid #ccc', padding: '1rem', margin: '1rem', width: 200 }}>
+      <img src={movie.posterURL} alt={movie.title} width="100%" />
       <h3>{movie.title}</h3>
-      <img src={movie.posterURL} alt={movie.title} width="150" />
-      <p>{movie.description}</p>
-      <p>Note : {movie.rating}/10</p>
+      <p>⭐ {movie.rating}</p>
+      
+      {/* 🔗 Lien vers la page de détails du film */}
+      <Link to={`/movie/${movie.id}`}>Voir la description</Link>
     </div>
   );
 }
+
+export default MovieCard;
